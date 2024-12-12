@@ -28,13 +28,13 @@ if (!fs.existsSync(uploadsDir)) {
 }
 
 
-
+app.use(cors());
 
 // Middleware
 app.use(cors({
-  origin: '*', // Allow all origins (can be replaced with specific origins)
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization',
+  origin:["https://deploy-interactive-map-1whq.vercel.app"],
+  method:["POST","GET","PUT","DELETE"],
+  credentials:true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
