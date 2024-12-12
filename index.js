@@ -27,8 +27,15 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
 
+
+
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins (can be replaced with specific origins)
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
